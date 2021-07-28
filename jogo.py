@@ -1,14 +1,17 @@
 import pygame
 import sys
 
-from pygame import display
 from cobrinha import Cobra
+from comida import Comida
 
 # Inicia o pygame
 pygame.init()
 TAM_TELA = (300,400)
 tela = pygame.display.set_mode(TAM_TELA)
+
 cobra = Cobra()
+comida = Comida()
+posicao_comida = comida.posicao
 
 # Para ficar atualizando a tela
 while True:
@@ -29,6 +32,9 @@ while True:
         pygame.draw.rect(tela, pygame.Color(67,145,0),
                                 pygame.Rect(pos[0], pos[1], 10, 10))
 
+    pygame.draw.rect(tela, pygame.Color(89, 200, 100),
+                            pygame.Rect(posicao_comida[0], posicao_comida[1]))
+
     # Atualiza a tela a cada frame
-    pygame.display.update()
+    pygame.display.update() 
 
