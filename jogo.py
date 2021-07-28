@@ -33,7 +33,7 @@ while True:
                                 pygame.Rect(pos[0], pos[1], 10, 10))
 
     pygame.draw.rect(tela, pygame.Color(89, 200, 100),
-                            pygame.Rect(posicao_comida[0], posicao_comida[1]))
+                            pygame.Rect(posicao_comida[0], posicao_comida[1], 10, 10))
 
     # Atualiza a tela a cada frame
     pygame.display.update() 
