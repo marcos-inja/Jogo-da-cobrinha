@@ -1,5 +1,7 @@
 import pygame
 import sys
+
+from pygame import display
 from cobrinha import Cobra
 
 # Inicia o pygame
@@ -11,13 +13,22 @@ cobra = Cobra()
 # Para ficar atualizando a tela
 while True:
 
-    # Escuta os eventos
+    # Muda a cor da tela, usando o rgb
+    tela.fill((25, 0, 34))
+
     for event in pygame.event.get():
-        # Se a tecla precionada for igual a sair, ele sai
+        # escuta - mouse ou teclado, for igual a sair
         if event.type == pygame.QUIT:
-            # Sai do jogo
+            # Interrompe o jogo
             pygame.quit()
+            print('falou')
             # Fecha a janela
             sys.exit()  
+    
+    for pos in cobra.corpo:
+        pygame.draw.rect(tela, pygame.Color(67,145,0),
+                                pygame.Rect(pos[0], pos[1], 10, 10))
 
+    # Atualiza a tela a cada frame
+    pygame.display.update()
 
