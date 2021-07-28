@@ -7,3 +7,15 @@ class Cobra:
         self.posicao = posicao
         self.corpo = corpo
         self.direcao = direcao
+
+
+    def muda_direcao(self, nova_direcao):
+        pass
+
+
+    def move(self, posicao_comida):
+        pass
+
+
+    def colisao(self):
+        pass
