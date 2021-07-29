@@ -9,6 +9,9 @@ pygame.init()
 TAM_TELA = (300,400)
 tela = pygame.display.set_mode(TAM_TELA)
 
+# Cronômetro
+tempo = pygame.time.Clock()
+
 cobra = Cobra()
 comida = Comida()
 posicao_comida = comida.posicao
@@ -27,6 +30,18 @@ while True:
             print('falou')
             # Fecha a janela
             sys.exit()  
+
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_RIGHT:
+                cobra.muda_direcao('DIREITA')   
+            if event.key == pygame.K_UP:
+                cobra.muda_direcao('CIMA')
+            if event.key == pygame.K_DOWN:
+                cobra.muda_direcao('BAIXO')
+            if event.key == pygame.K_LEFT:
+                cobra.muda_direcao('ESQUERDA')
+    
+    cobra.move(posicao_comida)
     
     # Desenha a cobra na tela
     for pos in cobra.corpo:
@@ -40,3 +55,5 @@ while True:
     # Atualiza a tela a cada frame
     pygame.display.update() 
 
+    # Define os frames do jogo
+    tempo.tick(22)
