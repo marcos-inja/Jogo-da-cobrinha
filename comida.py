@@ -9,4 +9,8 @@ class Comida:
 
 
     def gera_nova_posicao(self):
-        pass   
+        if self.devorada:
+            self.posicao = [random.randrange(10, self.tam_tela[0], 10), 
+                        random.randrange(10, self.tam_tela[1], 10)]
+            self.devorada = False
+        return self.posicao

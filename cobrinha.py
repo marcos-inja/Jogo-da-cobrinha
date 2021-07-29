@@ -42,4 +42,12 @@ class Cobra:
         return False
 
     def colisao(self):
-        pass
+        if self.posicao[0] > (self.tam_tela[0] - 10) or self.posicao[0] < 0:
+            return True
+
+        if self.posicao[1] > (self.tam_tela[1] - 10) or self.posicao[1] < 0:
+            return True
+
+        for pedaco in self.corpo[1:]:
+            if self.posicao == pedaco:
+                return True

@@ -1,5 +1,6 @@
 import pygame
 import sys
+import time
 
 from cobrinha import Cobra
 from comida import Comida
@@ -9,12 +10,18 @@ pygame.init()
 TAM_TELA = (300,400)
 tela = pygame.display.set_mode(TAM_TELA)
 
+# Para colocar uma fonte
+pygame.font.init()
+minha_font = pygame.font.SysFont('Ubuntu', 20)
+
 # Cronômetro
 tempo = pygame.time.Clock()
 
 cobra = Cobra()
 comida = Comida()
 posicao_comida = comida.posicao
+
+pontuacao = 0
 
 # Para ficar atualizando a tela
 while True:
@@ -41,8 +48,25 @@ while True:
             if event.key == pygame.K_LEFT:
                 cobra.muda_direcao('ESQUERDA')
     
-    cobra.move(posicao_comida)
+    posicao_comida = comida.gera_nova_posicao()
+
+    # Se a posicao da cobra for igual a da comida
+    if cobra.move(posicao_comida):
+        comida.devorada = True
+        pontuacao += 1 
     
+    # Verifica colisão
+    if cobra.colisao():
+        pontos = minha_font.render(f'Você perdeu! pontos: {pontuacao}', True, (255,255,255))
+        tela.blit(pontos,(50,180))
+        pygame.display.flip()
+        time.sleep(1)
+        pygame.quit()
+        sys.exit()
+
+    # Texto da pontuação
+    pontos = minha_font.render(f'Pontuação: {pontuacao}', True, (255,255,255))
+    tela.blit(pontos,(10,10))
     # Desenha a cobra na tela
     for pos in cobra.corpo:
         pygame.draw.rect(tela, pygame.Color(67,145,0),
@@ -56,4 +80,4 @@ while True:
     pygame.display.update() 
 
     # Define os frames do jogo
-    tempo.tick(22)
+    tempo.tick(20)
