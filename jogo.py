@@ -17,6 +17,15 @@ minha_font = pygame.font.SysFont('Ubuntu', 20)
 # Cronômetro
 tempo = pygame.time.Clock()
 
+# Som de comer
+pygame.mixer.pre_init(44100, -16, 2, 2048)
+def playNotificationSound():
+    pygame.mixer.music.load("som.ogg")
+    pygame.mixer.music.play()
+
+
+# som = pygame.mixer.Sound('som.mp3')
+
 cobra = Cobra()
 comida = Comida()
 posicao_comida = comida.posicao
@@ -53,6 +62,7 @@ while True:
     # Se a posicao da cobra for igual a da comida
     if cobra.move(posicao_comida):
         comida.devorada = True
+        playNotificationSound()
         pontuacao += 1 
     
     # Verifica colisão
@@ -80,4 +90,4 @@ while True:
     pygame.display.update() 
 
     # Define os frames do jogo
-    tempo.tick(20)
+    tempo.tick(16)
