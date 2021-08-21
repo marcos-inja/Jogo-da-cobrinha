@@ -1,6 +1,6 @@
 # Jogo da cobrinha
-Jogo da cobrinha feita com python, utilizando a biblioteca pygame
-Solta som de laser, tem algo melhor??????? kkk 
+Jogo da cobrinha feita com python, utilizando a biblioteca pygame <br>
+Solta som de laser ao comer, tem algo melhor??????? kakakakakakka
 ## Para rodar
 ### Dependências
 - Ter o python 3.8+ instalado
