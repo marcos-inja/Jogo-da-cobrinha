@@ -3,6 +3,7 @@ Jogo da cobrinha feita com python, utilizando a biblioteca pygame <br>
 Solta som de laser ao comer, tem algo melhor??????? kakakakakakka
 ## Objetivos:
 1. Deixar essa parada bonita
+2. Procurar mais sons.
 ## Para rodar
 ### Dependências
 - Ter o python 3.8+ instalado
