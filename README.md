@@ -1,6 +1,6 @@
 # Jogo da cobrinha
 Jogo da cobrinha feita com python, utilizando a biblioteca pygame <br>
-Solta som de laser ao comer, tem algo melhor??????? kakakakakakka
+Solta som de laser ao comer, tem algo melhor!? Haha talvez...
 ## Objetivos:
 1. Deixar essa parada bonita
 2. Procurar mais sons.
