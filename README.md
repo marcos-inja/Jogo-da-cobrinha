@@ -14,6 +14,6 @@ pip install pygame
 ```
 ### Para iniciar
 ```sh
-python3 main.py
+python3 jogo.py
 ```
 
